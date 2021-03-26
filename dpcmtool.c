@@ -254,9 +254,9 @@ uint16_t get_code_addr(int mode)
         case MODE_ZP:
             return get_code_byte();
         case MODE_ZP_X:
-            return get_code_byte() + reg_x;
+            return (get_code_byte() + reg_x) & 0xff;
         case MODE_ZP_Y:
-            return get_code_byte() + reg_y;
+            return (get_code_byte() + reg_y) & 0xff;
         case MODE_ABS:
             return get_code_word();
         case MODE_ABS_X:
